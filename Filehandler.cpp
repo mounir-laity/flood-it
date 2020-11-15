@@ -2,7 +2,6 @@
 #include <fstream>
 #include <string>
 #include <iostream>
-
 using namespace std;
 
 FileHandler::FileHandler(unsigned lines, unsigned columns, unsigned colors)
@@ -46,7 +45,6 @@ void FileHandler::writeRecord(int record) {
     string line;
     bool found = false;
     while(getline(inFile, line)) {
-        cout << "ligne :"+line <<endl;
         if(!line.find(wanted)) {
             found = true;
             line = newRecord;

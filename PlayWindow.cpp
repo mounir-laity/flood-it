@@ -40,54 +40,54 @@ void PlayWindow::displayBoard() {
     int record = handler.readRecord();
     this->setFixedSize(columns*SQUARESIZE+WIDTH, lines*SQUARESIZE+HEIGHT);
     this->ui->recordTurns->setText(QString::number(handler.readRecord()));
-       for(unsigned i = 0; i < lines; i++) {
-           for(unsigned j = 0; j < columns; j++) {
-               ClickableLabel *label = new ClickableLabel(this);
-               Square square = game.getBoard().getSquares()[i][j];
-               switch (square.getColor()) {
-               case RED:
-                   label->setPixmap(REDSQUARE);
-                   break;
-               case BLUE:
-                   label->setPixmap(BLUESQUARE);
-                   break;
-               case YELLOW:
-                   label->setPixmap(YELLOWSQUARE);
-                   break;
-               case ORANGE:
-                   label->setPixmap(ORANGESQUARE);
-                   break;
-               case CYAN:
-                   label->setPixmap(CYANSQUARE);
-                   break;
-               case PURPLE:
-                   label->setPixmap(PURPLESQUARE);
-                   break;
-               case GREEN:
-                   label->setPixmap(GREENSQUARE);
-                   break;
-               default:
-                   label->setPixmap(PINKSQUARE);
-                   break;
-               }
-               ui->gridLayout->addWidget(label, i, j, nullptr);
-               label->setAttributes(square, &game);
-           }
-       }
-       ui->gridLayout->setContentsMargins(0,0,0,0);
+    for(unsigned i = 0; i < lines; i++) {
+        for(unsigned j = 0; j < columns; j++) {
+            ClickableLabel *label = new ClickableLabel(this);
+            Square square = game.getBoard().getSquares()[i][j];
+            switch (square.getColor()) {
+            case RED:
+                label->setPixmap(REDSQUARE);
+                break;
+            case BLUE:
+                label->setPixmap(BLUESQUARE);
+                break;
+            case YELLOW:
+                label->setPixmap(YELLOWSQUARE);
+                break;
+            case ORANGE:
+                label->setPixmap(ORANGESQUARE);
+                break;
+            case CYAN:
+                label->setPixmap(CYANSQUARE);
+                break;
+            case PURPLE:
+                label->setPixmap(PURPLESQUARE);
+                break;
+            case GREEN:
+                label->setPixmap(GREENSQUARE);
+                break;
+            default:
+                label->setPixmap(PINKSQUARE);
+                break;
+            }
+            ui->gridLayout->addWidget(label, i, j, nullptr);
+            label->setAttributes(square, &game);
+        }
+    }
+    ui->gridLayout->setContentsMargins(0,0,0,0);
 
-       if(game.isOver()) {
-           if(turns < record) {
-               handler.writeRecord(turns);
-               record = turns;
-           }
-           this->close();
-           EndWindow endView = EndWindow(nullptr, false, turns, record);
-           endView.setModal(true);
-           endView.exec();
-       }
-       ui->numberOfTurns->setText(QString::number(turns));
-       turns++;
+    if(game.isOver()) {
+        if(turns < record) {
+            handler.writeRecord(turns);
+            record = turns;
+        }
+        this->close();
+        EndWindow endView = EndWindow(nullptr, false, turns, record);
+        endView.setModal(true);
+        endView.exec();
+    }
+    ui->numberOfTurns->setText(QString::number(turns));
+    turns++;
 }
 
 void PlayWindow::update(const Subject *subject) {
@@ -98,7 +98,7 @@ void PlayWindow::update(const Subject *subject) {
 void PlayWindow::clearWidgets() {
     for (int i = 0; i < ui->gridLayout->count(); i++)
     {
-       ui->gridLayout->itemAt(i)->widget()->deleteLater();
+        ui->gridLayout->itemAt(i)->widget()->deleteLater();
     }
 }
 
