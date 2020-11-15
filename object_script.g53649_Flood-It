@@ -1,0 +1,15 @@
+Board.o
+ClickableLabel.o
+EndWindow.o
+Filehandler.o
+Game.o
+PlayWindow.o
+Square.o
+StartWindow.o
+Subject.o
+main.o
+qrc_resources.o
+moc_ClickableLabel.o
+moc_EndWindow.o
+moc_PlayWindow.o
+moc_StartWindow.o
