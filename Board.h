@@ -25,23 +25,23 @@ public:
      */
     Board(unsigned line, unsigned column, unsigned colors);
 
-    /**
-     * @brief initialize creates a board linesxcolumns size with squares of random colors
+    /*!
+     * \brief initialize creates a board linesxcolumns size with squares of random colors
      */
     void initialize();
 
-    /**
-     * @brief getLines getter for the number of lines of the board
+    /*!
+     * \brief getLines getter for the number of lines of the board
      */
     unsigned getLines();
 
-    /**
-     * @brief getColumns getter for the number of columns of the board
+    /*!
+     * \brief getColumns getter for the number of columns of the board
      */
     unsigned getColumns();
 
-    /**
-     * @brief getSquares getter for the array containing the squares
+    /*!
+     * \brief getSquares getter for the array containing the squares
      */
     vector<vector<Square>>& getSquares();
 
@@ -51,9 +51,9 @@ private:
     unsigned colors;
     vector<vector<Square>> squares;
 
-    /**
-     * @brief chooseColor selects a random color from the enum colors
-     * @return the randomly selected color
+    /*!
+     * \brief chooseColor selects a random color from the enum colors
+     * \return the randomly selected color
      */
     Color chooseColor();
 
